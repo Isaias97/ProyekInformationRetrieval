@@ -7,6 +7,7 @@ package MesinPencari;
 
 import java.util.ArrayList;
 import Model.*;
+import java.util.Collections;
 /**
  *
  * @author Aureli Isaias
@@ -203,11 +204,11 @@ public class SearchDialog extends javax.swing.JDialog {
         // mencari cosine similarity
         ArrayList<SearchingResult> results = MesinPencari.index.searchCosineSimilarity(query);
         // memanggil getListOfDocument
-        ArrayList<Document> docList = MesinPencari.index.getListOfDocument();
-        for (int i = 0; i < docList.size(); i++) {
-            jTable1.setValueAt(docList.get(i).getId(), i, 0);
-            jTable1.setValueAt(docList.get(i).getContent(), i, 1);
-            jTable1.setValueAt(results.get(i).getSimilarity(), i, 2);
+        for (int i = 0; i < results.size(); i++) {
+            SearchingResult doc = results.get(i);
+            jTable1.setValueAt(doc.getDocument().getId(), i, 0);
+            jTable1.setValueAt(doc.getDocument().getContent(), i, 1);
+            jTable1.setValueAt(doc.getSimilarity(), i, 2);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
