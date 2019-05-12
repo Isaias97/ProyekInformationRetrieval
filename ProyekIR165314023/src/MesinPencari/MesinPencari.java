@@ -268,7 +268,6 @@ public class MesinPencari extends javax.swing.JFrame {
       
             ArrayList<Document> listdoc = index.getListOfDocument();
             for (int i = 0; i < listdoc.size(); i++) {
-//                listdoc.get(i).IndonesiaStem();
                 jTable1.setValueAt(listdoc.get(i).getId(), i, 0);
                 jTable1.setValueAt(listdoc.get(i).getContent(), i, 1);
                 jTable1.setValueAt(listdoc.get(i).getRealContent(), i, 2);
