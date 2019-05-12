@@ -265,8 +265,6 @@ public class MesinPencari extends javax.swing.JFrame {
                 // menambahkan document
                 getIndex().addNewDocument(doc);
             }
-            // melakukan indexing document
-            getIndex().makeDictionaryWithTermNumber();
       
             ArrayList<Document> listdoc = index.getListOfDocument();
             for (int i = 0; i < listdoc.size(); i++) {
@@ -275,6 +273,8 @@ public class MesinPencari extends javax.swing.JFrame {
                 jTable1.setValueAt(listdoc.get(i).getContent(), i, 1);
                 jTable1.setValueAt(listdoc.get(i).getRealContent(), i, 2);
             }
+            // melakukan indexing document
+            getIndex().makeDictionaryWithTermNumber();
             
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
