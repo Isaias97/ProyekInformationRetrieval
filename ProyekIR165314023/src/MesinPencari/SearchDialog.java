@@ -203,12 +203,13 @@ public class SearchDialog extends javax.swing.JDialog {
         String query = jTextField1.getText();
         // mencari cosine similarity
         ArrayList<SearchingResult> results = MesinPencari.index.searchCosineSimilarity(query);
+        Collections.reverse(results);
         // memanggil getListOfDocument
         for (int i = 0; i < results.size(); i++) {
             SearchingResult doc = results.get(i);
             jTable1.setValueAt(doc.getDocument().getId(), i, 0);
             jTable1.setValueAt(doc.getDocument().getContent(), i, 1);
-            jTable1.setValueAt(doc.getSimilarity(), i, 2);
+            jTable1.setValueAt(results.get(i).getSimilarity(), i, 2);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
