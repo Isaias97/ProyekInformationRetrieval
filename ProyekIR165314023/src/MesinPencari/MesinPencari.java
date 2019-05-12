@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import Model.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,6 +37,9 @@ public class MesinPencari extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -45,6 +49,115 @@ public class MesinPencari extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Document", "Content", "Real Content"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         jMenu1.setText("File");
 
@@ -93,11 +206,17 @@ public class MesinPencari extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -124,28 +243,39 @@ public class MesinPencari extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         // membuat fileChoose hanya di directory
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        
+ 
         int returnVal = fc.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             // membaca directory
             File dir = fc.getSelectedFile();
             // membaca isi directory
-            File files[] = dir.listFiles();
+            File files[] = dir.listFiles();           
             for (int i = 0; i < files.length; i++) {
                 // membuat document baru
                 Document doc = new Document();
                 // menyimpan i ke setId
                 doc.setId(i);
+//                doc.IndonesiaStem();
                 // membaca isi file
                 // Isi file disimpan di atribut content dari objeck document
                 // i merupakan Id Document
                 File file = files[i];
                 doc.readFile((i+1), file);
+                
                 // menambahkan document
                 getIndex().addNewDocument(doc);
             }
             // melakukan indexing document
             getIndex().makeDictionaryWithTermNumber();
+      
+            ArrayList<Document> listdoc = index.getListOfDocument();
+            for (int i = 0; i < listdoc.size(); i++) {
+//                listdoc.get(i).IndonesiaStem();
+                jTable1.setValueAt(listdoc.get(i).getId(), i, 0);
+                jTable1.setValueAt(listdoc.get(i).getContent(), i, 1);
+                jTable1.setValueAt(listdoc.get(i).getRealContent(), i, 2);
+            }
+            
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -192,6 +322,9 @@ public class MesinPencari extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
     private InvertedIndex getIndex() {
