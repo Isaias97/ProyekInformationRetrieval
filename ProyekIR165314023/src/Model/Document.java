@@ -154,6 +154,7 @@ public class Document implements Comparable<Document>{
             while ((str = bufReader.readLine()) != null) {            
                 // menyimpan str ke content
                 this.setContent(str);
+                this.setRealContent(str);
             }
             // menutup bufReader
             bufReader.close();
@@ -165,6 +166,7 @@ public class Document implements Comparable<Document>{
         catch (IOException e) {
             System.out.println(e.toString());
         }
+        this.IndonesiaStem();
     }
 
     @Override
@@ -238,7 +240,7 @@ public class Document implements Comparable<Document>{
     }
     
     public void IndonesiaStem(){
-         Version matchVersion = Version.LUCENE_7_7_0;
+        Version matchVersion = Version.LUCENE_7_7_0;
         Analyzer analyzer = new IndonesianAnalyzer();
         analyzer.setVersion(matchVersion);
         
