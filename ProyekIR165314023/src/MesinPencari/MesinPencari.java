@@ -257,7 +257,6 @@ public class MesinPencari extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         // membuat fileChoose hanya di directory
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
- 
         int returnVal = fc.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             // membaca directory
@@ -269,7 +268,6 @@ public class MesinPencari extends javax.swing.JFrame {
                 Document doc = new Document();
                 // menyimpan i ke setId
                 doc.setId(i);
-//                doc.IndonesiaStem();
                 // membaca isi file
                 // Isi file disimpan di atribut content dari objeck document
                 // i merupakan Id Document
@@ -279,9 +277,11 @@ public class MesinPencari extends javax.swing.JFrame {
                 // menambahkan document
                 getIndex().addNewDocument(doc);
             }
-      
+            // memanggil getListOfDocument    
             ArrayList<Document> listdoc = index.getListOfDocument();
+            // melakukan perulangan sebanyak getListOfDocument
             for (int i = 0; i < listdoc.size(); i++) {
+                // mengeset dokument ke dalam tabel
                 jTable1.setValueAt(listdoc.get(i).getId(), i, 0);
                 jTable1.setValueAt(listdoc.get(i).getContent(), i, 1);
                 jTable1.setValueAt(listdoc.get(i).getRealContent(), i, 2);
@@ -294,8 +294,11 @@ public class MesinPencari extends javax.swing.JFrame {
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
+        // memanggil getListOfDocument
         ArrayList<Document> listdoc = index.getListOfDocument();
+        // melakukan perulangan sebanyak getlistOfDocument
             for (int i = 0; i < listdoc.size(); i++) {
+                // mengeset document ke tabel
                 jTable1.setValueAt(listdoc.get(i).getId(), i, 0);
                 jTable1.setValueAt(listdoc.get(i).getContent(), i, 1);
                 jTable1.setValueAt(listdoc.get(i).getRealContent(), i, 2);

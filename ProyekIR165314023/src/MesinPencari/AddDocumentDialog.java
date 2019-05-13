@@ -107,11 +107,16 @@ public class AddDocumentDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // mengambil document id yang diinputkan
         int idDoc = Integer.valueOf(jTextField2.getText());
         String content = jTextArea1.getText();
+        // menyimpan idDoc dan content ke doc Document
         Document doc = new Document(idDoc, content);
+        // melakukan stemming pada content
         doc.IndonesiaStem();
+        // menambahkan document yang diinputkan ke index
         MesinPencari.index.addNewDocument(doc);
+        // menutup dialog frame
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
