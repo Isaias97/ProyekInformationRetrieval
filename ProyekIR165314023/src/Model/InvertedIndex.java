@@ -457,8 +457,14 @@ public class InvertedIndex {
         }
         // menghitung akar dari tempPost * tempQuery
         double sqrt = Math.sqrt(tempPost * tempQuery);
+        // menghitung cosine simaliriy
+        double hasil = innerProduct / sqrt;
+        // mengecek hasil perhitungan apabila dibagi 0
+        if (hasil == 0) {
+            return 0;
+        }
         // mengembalikan innerProduct dibagi sqrt        
-        return innerProduct / sqrt;
+        return hasil;
     }
     
     public ArrayList<SearchingResult> searchTFIDF(String query){
