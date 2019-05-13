@@ -110,6 +110,7 @@ public class AddDocumentDialog extends javax.swing.JDialog {
         int idDoc = Integer.valueOf(jTextField2.getText());
         String content = jTextArea1.getText();
         Document doc = new Document(idDoc, content);
+        doc.IndonesiaStem();
         MesinPencari.index.addNewDocument(doc);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
