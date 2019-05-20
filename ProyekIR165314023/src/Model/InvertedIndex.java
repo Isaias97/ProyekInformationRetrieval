@@ -203,7 +203,7 @@ public class InvertedIndex {
         for (int i = 0; i < tempQuery.length; i++) {
             String string = tempQuery[i];
             if (i == 0) {
-                tempPosting = searchOneWord(tempQuery[i]);
+                tempPosting = searchOneWord(string);
             }
             else {
                 ArrayList<Posting> tempPosting1 = searchOneWord(tempQuery[i]);
