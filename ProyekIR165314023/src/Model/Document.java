@@ -244,14 +244,14 @@ public class Document implements Comparable<Document>{
         Analyzer analyzer = new IndonesianAnalyzer();
         analyzer.setVersion(matchVersion);
         
-        //ambil stopwords
+        //ambil stop words
         CharArraySet stopword = IndonesianAnalyzer.getDefaultStopSet();
         // buat token
         TokenStream tokenStream = analyzer.tokenStream("myField", 
                 new StringReader(realContent.trim()));
-        
+        // buang stop word
         tokenStream = new StopFilter(tokenStream, stopword);
-        
+        // buat string baru tanpa stop word
         StringBuilder sb = new StringBuilder();
         CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);
         try {
