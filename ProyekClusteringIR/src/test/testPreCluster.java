@@ -28,13 +28,13 @@ public class testPreCluster {
         }
         index.makeDictionaryWithTermNumber();
         index.preClustering();
-        for (int i = 0; i < index.getListOfDocument().size(); i++) {
-            ArrayList<Posting> listPosting = 
-                    index.getListOfDocument().get(i).getListOfClusteringPosting();
-            System.out.println("IdDoc = "+index.getListOfDocument().get(i).getId());
-            for (int j = 0; j < listPosting.size(); j++) {
-                System.out.println(listPosting.get(j));
-            }
-        }
+//        for (int i = 0; i < index.getListOfDocument().size(); i++) {
+//            ArrayList<Posting> listPosting = 
+//                    index.getListOfDocument().get(i).getListOfClusteringPosting();
+//            System.out.println("IdDoc = "+index.getListOfDocument().get(i).getId());
+//            for (int j = 0; j < listPosting.size(); j++) {
+//                System.out.println(listPosting.get(j));
+//            }
+//        }
     }
 }

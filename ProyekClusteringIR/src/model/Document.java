@@ -164,6 +164,7 @@ public class Document implements Comparable<Document>{
             while ((str = bufReader.readLine()) != null) {            
                 // menyimpan str ke content
                 this.setContent(str);
+                this.setRealContent(str);
             }
             // menutup bufReader
             bufReader.close();
@@ -175,6 +176,7 @@ public class Document implements Comparable<Document>{
         catch (IOException e) {
             System.out.println(e.toString());
         }
+        this.IndonesiaStemming();
     }
 
     @Override
