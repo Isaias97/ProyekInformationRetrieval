@@ -33,7 +33,7 @@ import org.apache.lucene.util.Version;
 public class Document implements Comparable<Document>{
     private int id;
     private String content;
-    private String label;
+    private String labelCluster;
     private String realContent;
     ArrayList<Posting> listOfClusteringPosting = new ArrayList<Posting>();
     
@@ -89,6 +89,14 @@ public class Document implements Comparable<Document>{
 
     public void setRealContent(String realContent) {
         this.realContent = realContent;
+    }
+    
+    public String getLabelCluster() {
+        return labelCluster;
+    }
+
+    public void setLabelCluster(String labelCluster) {
+        this.labelCluster = labelCluster;
     }
     
     public String[] getListofTerm(){
@@ -278,5 +286,6 @@ public class Document implements Comparable<Document>{
      */
     public void setListOfPosting(ArrayList<Posting> listOfPosting) {
         this.listOfClusteringPosting = listOfPosting;
-}
+    }
+
 }
