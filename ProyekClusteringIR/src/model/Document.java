@@ -32,6 +32,7 @@ import org.apache.lucene.util.Version;
  */
 public class Document implements Comparable<Document>{
     private int id;
+    private String title;
     private String content;
     private String labelCluster;
     private String realContent;
@@ -102,6 +103,7 @@ public class Document implements Comparable<Document>{
     public String[] getListofTerm(){
         String value = this.getContent();
         value = value.replaceAll("[.,?!]", "");
+        value = value.replaceAll("\n", " ");
         return value.split(" ");
     }
     
@@ -154,6 +156,8 @@ public class Document implements Comparable<Document>{
         this.id = id;
         // baca file
         try {
+            // mengambil nama file
+            this.setTitle(file.getName());
             // menyimpan file ke objek bacaFile
             FileReader bacaFile = new FileReader(file);
             // menyimpan bacaFile ke bjek bufReader
@@ -288,6 +292,14 @@ public class Document implements Comparable<Document>{
      */
     public void setListOfPosting(ArrayList<Posting> listOfPosting) {
         this.listOfClusteringPosting = listOfPosting;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 }
