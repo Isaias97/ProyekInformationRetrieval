@@ -286,7 +286,7 @@ public class MesinPencari extends javax.swing.JFrame {
                 // membuat document baru
                 Document doc = new Document();
                 // menyimpan i ke setId
-                doc.setId(i);
+                doc.setId((i+1));
                 // membaca isi file
                 // Isi file disimpan di atribut content dari objeck document
                 // i merupakan Id Document
@@ -296,6 +296,8 @@ public class MesinPencari extends javax.swing.JFrame {
                 // menambahkan document
                 getIndex().addNewDocument(doc);
             }
+            // melakukan indexing document
+            getIndex().makeDictionaryWithTermNumber();
             // memanggil getListOfDocument    
             ArrayList<Document> listdoc = index.getListOfDocument();
             // melakukan perulangan sebanyak getListOfDocument
@@ -305,9 +307,6 @@ public class MesinPencari extends javax.swing.JFrame {
                 jTable1.setValueAt(listdoc.get(i).getContent(), i, 1);
                 jTable1.setValueAt(listdoc.get(i).getRealContent(), i, 2);
             }
-            // melakukan indexing document
-            getIndex().makeDictionaryWithTermNumber();
-            
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

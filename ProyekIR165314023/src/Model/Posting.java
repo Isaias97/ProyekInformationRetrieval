@@ -56,6 +56,11 @@ public class Posting implements Comparable<Posting>{
     public void setTerm(String term) {
         this.term = term;
     }
+    
+    @Override
+    public String toString() {
+        return "Posting{" + "term=" + term + ", numberOfTerm=" + numberOfTerm + ", weight=" + weight + '}';
+    }
 
     @Override
     public int compareTo(Posting posting) {
