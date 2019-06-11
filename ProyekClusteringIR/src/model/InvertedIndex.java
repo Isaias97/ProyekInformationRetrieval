@@ -551,6 +551,7 @@ public class InvertedIndex {
     }
     
     public void clustering(){
+        preClustering();
         // buat arraylistofCluster sejumlah kelompok yang sudah ditentukan
         // dan tetapkan N document awal sebagai pusat cluster
         for (int i = 0; i < Number_Of_Cluster; i++) {
