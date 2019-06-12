@@ -554,8 +554,8 @@ public class InvertedIndex {
         // melakukan preclustering
         preClustering();
         // menyiapkan arraylist center dokument
-        ArrayList<Document> center1 = new ArrayList<Document>();
-        ArrayList<Document> center2 = new ArrayList<Document>();
+//        ArrayList<Document> center1 = new ArrayList<Document>();
+//        ArrayList<Document> center2 = new ArrayList<Document>();
         // buat arraylistofCluster sejumlah kelompok yang sudah ditentukan
         // dan tetapkan N document awal sebagai pusat cluster
         for (int i = 0; i < Number_Of_Cluster; i++) {
