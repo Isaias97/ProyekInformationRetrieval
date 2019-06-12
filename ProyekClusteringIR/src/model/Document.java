@@ -34,7 +34,6 @@ public class Document implements Comparable<Document>{
     private int id;
     private String title;
     private String content;
-    private String labelCluster;
     private String realContent;
     ArrayList<Posting> listOfClusteringPosting = new ArrayList<Posting>();
     
@@ -90,14 +89,6 @@ public class Document implements Comparable<Document>{
 
     public void setRealContent(String realContent) {
         this.realContent = realContent;
-    }
-    
-    public String getLabelCluster() {
-        return labelCluster;
-    }
-
-    public void setLabelCluster(String labelCluster) {
-        this.labelCluster = labelCluster;
     }
     
     public String[] getListofTerm(){
