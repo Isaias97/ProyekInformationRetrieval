@@ -570,7 +570,7 @@ public class InvertedIndex {
                     new ArrayList<DocumentToClusterSimilarity>();
         for (int i = 0; i < listOfDocument.size(); i++) {
             // per epoch
-//            Document doc = listOfDocument.get(i);
+            Document doc = listOfDocument.get(i);
             // hitung similarity
             for (int j = 0; j <listOfCluster.size(); j++) {
                 double sim = getCosineSimilarity(listOfDocument.get(i).getListOfClusteringPosting(), 
@@ -582,18 +582,18 @@ public class InvertedIndex {
             // sorting similarity
             Collections.sort(listOfSimilarity);
             // mengecek center document
-            if (listOfSimilarity.get(0).getCluster().getIdCluster() == 0){
-                    center1.add(listOfDocument.get(i));
-            }
-            else if (listOfSimilarity.get(0).getCluster().getIdCluster() == 1){
-                    center2.add(listOfDocument.get(i));                 
-            }
-            listOfCluster.get(0).setMember(center1);
-            listOfCluster.get(1).setMember(center2);
+//            if (listOfSimilarity.get(0).getCluster().getIdCluster() == 0){
+//                    center1.add(listOfDocument.get(i));
+//            }
+//            else if (listOfSimilarity.get(0).getCluster().getIdCluster() == 1){
+//                    center2.add(listOfDocument.get(i));                 
+//            }
+//            listOfCluster.get(0).setMember(center1);
+//            listOfCluster.get(1).setMember(center2);
             // asumsi sorting descending , similarity terurut dari besar ke kecil
             // tetapkan document ke cluster dengan similarity terbesar
             // anda juga bisa tetapkan dengan KNN
-//            listOfSimilarity.get(0).getCluster().getMember().add(doc);
+            listOfSimilarity.get(0).getCluster().getMember().add(doc);
         }
     }
 }
